@@ -27,8 +27,9 @@ export default function StoreVisit() {
               </svg>
             </span>
             <h3>Horário de Funcionamento</h3>
-            <p>Segunda a Sábado: 08:00 às 19:00</p>
-            <p>Domingos e Feriados: 08:30 às 13:00</p>
+            <p>Segunda a Sexta: 08:00 às 20:00</p>
+            <p>Sábado: 08:00 às 18:00</p>
+            <p>Domingos e Feriados: 08:00 às 14:00</p>
           </div>
         </div>
         <div className="store-visit__cta">
