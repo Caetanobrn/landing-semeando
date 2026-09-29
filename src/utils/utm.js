@@ -34,7 +34,7 @@ export function whatsappLink(message) {
   const campaign = utm.utm_campaign || 'organico';
   const base = 'https://wa.me/5521964787876';
   const text = encodeURIComponent(
-    `Olá! Vim pelo site. Origem: ${source} (${campaign}). ${message || ''}`
+    `Olá! Vim pelo site e gostaria de saber mais. ${message}`
   );
   return `${base}?text=${text}`;
 }
