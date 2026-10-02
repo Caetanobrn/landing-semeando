@@ -8,6 +8,7 @@ const SLIDES = [
     sub: 'Atendimento exclusivo, produtos premium e cuidado em cada detalhe da vida do seu companheiro.',
     cta: 'Fale no WhatsApp',
     href: whatsappLink('Quero saber mais sobre os serviços.'),
+    type: 'whatsapp',
     position: 'hero_slide_1'
   },
   {
@@ -15,7 +16,7 @@ const SLIDES = [
     title: 'Experiência premium para todas as espécies',
     sub: 'De cães e gatos a pássaros, aquarismo, plantas e piscinas — tudo em um só lugar.',
     cta: 'Conheça as categorias',
-    href: '#categorias',
+    type: 'anchor',
     position: 'hero_slide_2'
   },
   {
@@ -24,6 +25,7 @@ const SLIDES = [
     sub: 'Entrega rápida via WhatsApp com o mesmo cuidado da nossa loja.',
     cta: 'Peça agora',
     href: whatsappLink('Quero fazer um pedido.'),
+    type: 'whatsapp',
     position: 'hero_slide_3'
   }
 ];
@@ -59,15 +61,29 @@ export default function HeroCarousel() {
             <p className="hero__eyebrow">Pet Shop Semeando</p>
             <h1>{s.title}</h1>
             <p className="hero__sub">{s.sub}</p>
-            <a
-              className="btn btn--gold btn--lg"
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackWhatsAppClick(s.position)}
-            >
-              {s.cta}
-            </a>
+            {s.type === 'anchor' ? (
+                <button
+                className="btn btn--gold btn--lg"
+                type="button"
+                onClick={() => {
+                  document.getElementById('categorias')?.scrollIntoView({
+                    behavior: 'smooth'
+                  });
+                }}
+              >
+                {s.cta}
+              </button>
+            ) : (
+              <a
+                className="btn btn--gold btn--lg"
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick(s.position)}
+              >
+                {s.cta}
+              </a>
+)}
           </div>
         </div>
       ))}
